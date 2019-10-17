@@ -1,1 +1,40 @@
+#how serializers work
+	#<--------------------------------------------- .Serializer----------------------------------------------------->
+from rest_framework import serializer
+
+# class EmpoyeeSerializer(serializer.ModelSerializer):
+#   class Meta:
+#     #fields='__all__'
+#     fields=(
+#       'first_name',
+#       'last_name',
+#       'email',
+#       'url')
+
+
+
+#Python Shell
+from poll.serializer import QuestionSerializer
+q=QuestionSerializer(data={'title':'what is your name'})
+
+q.is_valid() 
+q.errors
+q.validated_data              #to see validated data
+q.save()           #this call create method of serializer with data 
+                    #you can override create method of serializer
+                    #def create(seld,data)
+                    
+q.save(created_by=request.user)
+
+q.data          #after saving that serializer object
+                #actualy comeing from object
+                #
+#Get only emploee
+q=Questions.object.all()[0]
+q1=QuestionSerializer(q)
+
+#can update existing data
+q=Questions.object.all()
+q1=QuestionSerializer(q,data={'created_by':user.id},partial=True)
+#partial is  used if u dont want to pass all fields
 
