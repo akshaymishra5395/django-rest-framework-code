@@ -2,6 +2,7 @@
 from rest_framework import serializer
 class EmpoyeeSerializer(serializer.HyperlinkModelSerializer):
   class Meta:
+    model=User
     fields=(
       'first_name',
       'last_name',
@@ -10,6 +11,7 @@ class EmpoyeeSerializer(serializer.HyperlinkModelSerializer):
     
 # class EmpoyeeSerializer(serializer.ModelSerializer):
 #   class Meta:
+      #model=User
 #     #fields='__all__'
 #     fields=(
 #       'first_name',
@@ -20,6 +22,7 @@ class EmpoyeeSerializer(serializer.HyperlinkModelSerializer):
 # class EmpoyeeSerializer(serializer.Serializer):
 Need to be edited
 #   class Meta:
+      #model=User
 #     #fields='__all__'
 #     fields=(
 #       'first_name',
